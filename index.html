@@ -42,11 +42,12 @@
       markerLayer.getSource().clear(true);
 
       if (spotData.length) {
+        const r = 0.0002;
         spotData.forEach((spot) => {
           const data = spot["書籍名"] || spot["施設名"];
           map.addMarker(markerLayer, {
-            longitude: Number(spot["経度"]),
-            latitude: Number(spot["緯度"]),
+            longitude: Number(spot["経度"]) + Math.random() * r * 2 - r,
+            latitude: Number(spot["緯度"]) + Math.random() * r * 2 - r,
             content: `<p>${spot["スポット名"]}</p><p>作品名など：${data}</p><p>ゆかりの人物：${spot["人物"]}</p>`,
             icon: "./image/icon.png"
           });
